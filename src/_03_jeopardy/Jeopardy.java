@@ -64,6 +64,7 @@ public class Jeopardy implements ActionListener {
 		frame.add(quizPanel);
 
 		// 6. Use the createButton method to set the value of firstButton
+		
 
 		// 7. Add the firstButton to the quizPanel
 
@@ -97,14 +98,14 @@ public class Jeopardy implements ActionListener {
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
-
+		JButton button = new JButton();
 		// Set the text of the button to the dollarAmount
-
+		button.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
-
+		
 		// Return your new button instead of the temporary button
 
-		return new JButton("temporary button");
+		return new JButton();
 	}
 
 	public void actionPerformed(ActionEvent e) {
