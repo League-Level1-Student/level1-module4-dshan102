@@ -1,4 +1,5 @@
 package _07_fortune_teller;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /*
@@ -14,6 +15,9 @@ public class FortuneTellerRunner {
     
     static void begin() {
       	 // Welcome the user. Give them a hint for the secret location.
-
+    	JOptionPane.showMessageDialog(null, "Hello there, stranger.");
+    	JOptionPane.showMessageDialog(null, "You must be looking for the secret location.");
+    	JOptionPane.showMessageDialog(null, "I must warn you that many people before you have gone insane trying to find it.");
+    	JOptionPane.showMessageDialog(null, "Only to realize it was right in front of them the whole time.");
     }
 }
