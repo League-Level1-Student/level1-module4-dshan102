@@ -11,22 +11,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Calculator implements ActionListener {
-int number1;
-int number2;
 JButton b1;
 JButton b2;
 JButton b3;
 JButton b4;
 JTextField t1;
 JTextField t2;
+JLabel label = new JLabel();
+JFrame frame = new JFrame();
 
 public void run() {
-	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	frame.add(panel);
-	t1 = new JTextField("             ");
+	t1 = new JTextField(10);
 	panel.add(t1);
-	t2 = new JTextField("             ");
+	t2 = new JTextField(10);
 	panel.add(t2);
 	b1 = new JButton("Add");
 	panel.add(b1);
@@ -40,24 +39,46 @@ public void run() {
 	b4 = new JButton("Divide");
 	panel.add(b4);
 	b4.addActionListener(this);
+	panel.add(label);
 	frame.pack();
 	frame.setVisible(true);
 }
+
 public void Add() {
-	JOptionPane.showMessageDialog(null, number1+number2);
+	double number1 = Double.parseDouble(t1.getText());
+	double number2 = Double.parseDouble(t2.getText());
+	label.setText(number1+number2+"");
+	
 }
 public void Subtract() {
-	JOptionPane.showMessageDialog(null, number1-number2);
+	double number1 = Double.parseDouble(t1.getText());
+	double number2 = Double.parseDouble(t2.getText());
+	label.setText(number1-number2+"");
 }
 public void Multiply() {
-	JOptionPane.showMessageDialog(null, number1*number2);
+	double number1 = Double.parseDouble(t1.getText());
+	double number2 = Double.parseDouble(t2.getText());
+	label.setText(number1*number2+"");
 }
 public void Divide() {
-	JOptionPane.showMessageDialog(null, number1-number2);
+	double number1 = Double.parseDouble(t1.getText());
+	double number2 = Double.parseDouble(t2.getText());
+	label.setText(number1/number2+"");
 }
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
-	
+	if(e.getSource()==b1) {
+		Add();
+	}
+	else if(e.getSource()==b2) {
+		Subtract();
+	}
+	else if(e.getSource()==b3) {
+		Multiply();
+	}
+	else if(e.getSource()==b4) {
+		Divide();
+	}
 }
 }
