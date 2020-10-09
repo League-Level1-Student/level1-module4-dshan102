@@ -3,18 +3,25 @@ package _09_latest_tweet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+
 public class Latest_Tweet implements ActionListener {
 JTextField t1;
 JButton b1;
 JLabel label = new JLabel();
 
-/*private String getLatestTweet(String searchingFor) {
+private String getLatestTweet(String searchingFor) {
 
     Twitter twitter = new TwitterFactory().getInstance();
 
@@ -33,7 +40,7 @@ Query query = new Query(searchingFor);
         System.err.print(e.getMessage());
         return "What the heck is that?";
     }
-}*/
+}
 
 	public void run() {
 		JFrame frame = new JFrame();
@@ -53,7 +60,8 @@ Query query = new Query(searchingFor);
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==b1) {
-			System.out.println("Tweet Tweet");
+			//System.out.println(getLatestTweet(t1.getText()));//
+			System.out.println("Tweet, Tweet");
 		}
 	}
 }
