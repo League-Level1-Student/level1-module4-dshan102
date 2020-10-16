@@ -14,9 +14,10 @@ public class Pig_Latin implements ActionListener {
 	JTextField t2;
 	JButton b1;
 	JLabel label = new JLabel();
+	JFrame frame = new JFrame();
+	Pig_Latin_Translator translator = new Pig_Latin_Translator();
 	
 	public void run() {
-		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		frame.add(panel);
 		t1 = new JTextField(10);
@@ -34,7 +35,9 @@ public class Pig_Latin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		String output = translator.translate(t1.getText());
+		label.setText(output);
+		frame.pack();
 	}
 }
 
