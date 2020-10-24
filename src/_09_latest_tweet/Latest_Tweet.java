@@ -10,17 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.Twitter;
-import twitter4j.TwitterFactory;
-import twitter4j.auth.AccessToken;
+//import twitter4j.Query;
+//import twitter4j.QueryResult;
+//import twitter4j.Twitter;
+//import twitter4j.TwitterFactory;
+//import twitter4j.auth.AccessToken;
 
 public class Latest_Tweet implements ActionListener {
 JTextField t1;
 JButton b1;
 JLabel label = new JLabel();
-
+/*
 private String getLatestTweet(String searchingFor) {
 
     Twitter twitter = new TwitterFactory().getInstance();
@@ -41,7 +41,7 @@ Query query = new Query(searchingFor);
         return "What the heck is that?";
     }
 }
-
+*/
 	public void run() {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
