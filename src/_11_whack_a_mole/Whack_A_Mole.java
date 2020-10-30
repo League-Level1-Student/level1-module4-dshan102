@@ -25,7 +25,7 @@ public class Whack_A_Mole implements ActionListener {
 	Random random = new Random();
 	int rand = random.nextInt(9-1)+1;
 	
-	public void drawButtons() {
+	public void drawButtons(int rand) {
 		JPanel panel = new JPanel();
 		frame.add(panel);
 		b1 = new JButton();
