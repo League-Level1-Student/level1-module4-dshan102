@@ -1,5 +1,6 @@
 package _11_whack_a_mole;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -12,59 +13,55 @@ import javax.swing.JTextField;
 
 public class Whack_A_Mole implements ActionListener {
 	JFrame frame = new JFrame("Whack-a-mole");
-	JLabel label = new JLabel();
-	JButton b1;
-	JButton b2;
-	JButton b3;
-	JButton b4;
-	JButton b5;
-	JButton b6;
-	JButton b7;
-	JButton b8;
-	JButton b9;
-	Random random = new Random();
-	int rand = random.nextInt(9-1)+1;
+	JPanel panel = new JPanel();
 	
-	public void drawButtons(int rand) {
-		JPanel panel = new JPanel();
+	public void run() {
+		frame.setPreferredSize(new Dimension(200, 200));
 		frame.add(panel);
-		b1 = new JButton();
-		panel.add(b1);
-		b1.addActionListener(this);
-		b2 = new JButton();
-		panel.add(b2);
-		b2.addActionListener(this);
-		b3 = new JButton();
-		panel.add(b3);
-		b3.addActionListener(this);
-		b4 = new JButton();
-		panel.add(b4);
-		b4.addActionListener(this);
-		b5 = new JButton();
-		panel.add(b5);
-		b5.addActionListener(this);
-		b6 = new JButton();
-		panel.add(b6);
-		b6.addActionListener(this);
-		b7 = new JButton();
-		panel.add(b7);
-		b7.addActionListener(this);
-		b8 = new JButton();
-		panel.add(b8);
-		b8.addActionListener(this);
-		b9 = new JButton();
-		panel.add(b9);
-		b9.addActionListener(this);
-		panel.add(label);
-		frame.setSize(200, 200);
-		frame.pack();
 		frame.setVisible(true);
-}
+		frame.pack();
+		drawButtons();
+	}
+	
+	public void drawButtons() {
+		Random rand = new Random();
+		int rand1 = rand.nextInt(24);
+		for(int i=0; i<24; i++) {
+			JButton b = new JButton();
+			b.addActionListener(this);
+			panel.add(b);
+			if(i==rand1) {
+				b.setText("Mole!");
+			}
+		}
+		}
+	
+	static void speak(String words) {
+        if( System.getProperty( "os.name" ).contains( "Windows" ) ) {
+            String cmd = "PowerShell -Command \"Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('"
+                    + words + "');\"";
+            try {
+                Runtime.getRuntime().exec( cmd ).waitFor();
+            } catch( Exception e ) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                Runtime.getRuntime().exec( "say " + words ).waitFor();
+            } catch( Exception e ) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		JButton buttonPressed = (JButton) e.getSource();
+		if(! buttonPressed.getText().equals("Mole")) {
+			speak("Fat L");
+		}
 	}
 }
+
