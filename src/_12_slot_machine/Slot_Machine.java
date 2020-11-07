@@ -1,5 +1,6 @@
 package _12_slot_machine;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
@@ -16,6 +17,9 @@ public class Slot_Machine implements ActionListener {
 	JFrame frame = new JFrame();
 	JLabel label = new JLabel();
 	JButton b1;
+	JLabel label1;
+	JLabel label2;
+	JLabel label3;
 	
 	private JLabel createLabelImage(String fileName) throws MalformedURLException{
         URL imageURL = getClass().getResource(fileName);
@@ -29,9 +33,18 @@ public class Slot_Machine implements ActionListener {
 }
     
 	
-	public void run() {
+	public void run() throws MalformedURLException {
 		JPanel panel = new JPanel();
 		frame.add(panel);
+		label1 = createLabelImage("cherry.jpg");
+		label1.setPreferredSize(new Dimension(200,200));
+		panel.add(label1);
+		label2 = createLabelImage("orange-512.png");
+		label2.setPreferredSize(new Dimension(200,200));
+		panel.add(label2);
+		label3 = createLabelImage("watermelon.png");
+		label3.setPreferredSize(new Dimension(200,200));
+		panel.add(label3);
 		b1 = new JButton("SPIN");
 		panel.add(b1);
 		b1.addActionListener(this);
@@ -43,6 +56,8 @@ public class Slot_Machine implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource()==b1) {
+			
+		}
 	}
 }
